@@ -73,7 +73,7 @@ app.use((error, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost/lmi_development').then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
     _response.database = "Healthy"
     console.log("Database Connected")
     console.log("server Started on PORT", PORT)
