@@ -71,9 +71,10 @@ app.use((error, req, res, next) => {
     })
 })
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
+console.log(process.env.MONGO_URL);
 
-mongoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser:true}).then(() => {
     _response.database = "Healthy"
     console.log("Database Connected")
     console.log("server Started on PORT", PORT)
